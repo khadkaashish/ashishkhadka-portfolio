@@ -9,17 +9,17 @@ const skillGroups = [
 export default function Skills() {
   return (
     <section id="skills" className="py-24 max-w-5xl mx-auto section-padding">
-      <div className="border-t border-zinc-800 pt-16">
-        <p className="font-mono text-xs text-emerald-500 uppercase tracking-widest mb-10">
-          <span className="text-zinc-700 mr-1">05</span> skills
+      <div className="border-t border-zinc-200 dark:border-zinc-800 pt-16">
+        <p className="font-mono text-xs text-emerald-600 dark:text-emerald-500 uppercase tracking-widest mb-10">
+          <span className="text-zinc-300 dark:text-zinc-700 mr-1">05</span> skills
         </p>
 
         <div className="font-mono text-sm space-y-3">
           {skillGroups.map((group) => (
             <div key={group.category} className="flex gap-0">
-              <span className="text-zinc-700 w-28 shrink-0 pt-px">{group.category}</span>
-              <span className="text-zinc-700 mr-4 pt-px">·</span>
-              <span className="text-zinc-400">{group.skills.join(', ')}</span>
+              <span className="text-zinc-400 dark:text-zinc-700 w-28 shrink-0 pt-px">{group.category}</span>
+              <span className="text-zinc-300 dark:text-zinc-700 mr-4 pt-px">·</span>
+              <span className="text-zinc-600 dark:text-zinc-400">{group.skills.join(', ')}</span>
             </div>
           ))}
         </div>

@@ -8,12 +8,22 @@
   }
 
   body {
-    background-color: #09090b;
-    color: #fafafa;
+    background-color: #fafafa;
+    color: #18181b;
     font-family: var(--font-inter);
   }
 
+  .dark body {
+    background-color: #09090b;
+    color: #fafafa;
+  }
+
   ::selection {
+    background-color: #d1fae5;
+    color: #065f46;
+  }
+
+  .dark ::selection {
     background-color: #064e3b;
     color: #10b981;
   }
@@ -32,6 +42,9 @@
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: #27272a;
+  background: #d4d4d8;
   border-radius: 9999px;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: #27272a;
 }

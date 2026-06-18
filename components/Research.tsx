@@ -39,34 +39,34 @@ const research = [
 export default function Research() {
   return (
     <section id="research" className="py-24 max-w-5xl mx-auto section-padding">
-      <div className="border-t border-zinc-800 pt-16">
-        <p className="font-mono text-xs text-emerald-500 uppercase tracking-widest mb-10">
-          <span className="text-zinc-700 mr-1">04</span> research
+      <div className="border-t border-zinc-200 dark:border-zinc-800 pt-16">
+        <p className="font-mono text-xs text-emerald-600 dark:text-emerald-500 uppercase tracking-widest mb-10">
+          <span className="text-zinc-300 dark:text-zinc-700 mr-1">04</span> research
         </p>
 
         <div className="space-y-0">
           {research.map((r, i) => (
             <div
               key={i}
-              className={`py-7 border-b border-zinc-800/60 ${i === 0 ? 'border-t border-zinc-800/60' : ''}`}
+              className={`py-7 border-b border-zinc-200/80 dark:border-zinc-800/60 ${i === 0 ? 'border-t border-zinc-200/80 dark:border-zinc-800/60' : ''}`}
             >
               <div className="flex items-start justify-between gap-4 mb-2">
                 <div className="space-y-1">
                   <div className="flex items-center gap-3 flex-wrap">
-                    <span className="font-mono text-xs text-zinc-600 border border-zinc-800 px-1.5 py-0.5">
+                    <span className="font-mono text-xs text-zinc-500 dark:text-zinc-600 border border-zinc-200 dark:border-zinc-800 px-1.5 py-0.5">
                       {r.badge}
                     </span>
-                    <span className="font-mono text-xs text-zinc-600">{r.period}</span>
+                    <span className="font-mono text-xs text-zinc-400 dark:text-zinc-600">{r.period}</span>
                   </div>
-                  <h3 className="text-zinc-100 font-medium leading-snug">{r.title}</h3>
-                  <p className="font-mono text-xs text-zinc-600">{r.venue}</p>
+                  <h3 className="text-zinc-800 dark:text-zinc-100 font-medium leading-snug">{r.title}</h3>
+                  <p className="font-mono text-xs text-zinc-400 dark:text-zinc-600">{r.venue}</p>
                 </div>
                 {r.link && (
                   <a
                     href={r.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="shrink-0 text-zinc-600 hover:text-emerald-400 transition-colors mt-1"
+                    className="shrink-0 text-zinc-400 dark:text-zinc-600 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors mt-1"
                     aria-label="View paper"
                   >
                     <ExternalLink size={14} />
@@ -80,13 +80,13 @@ export default function Research() {
                 {r.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="font-mono text-xs text-emerald-600 bg-emerald-950/40 px-2 py-0.5"
+                    className="font-mono text-xs text-emerald-700 dark:text-emerald-600 bg-emerald-50 dark:bg-emerald-950/40 px-2 py-0.5"
                   >
                     {tag}
                   </span>
                 ))}
               </div>
-              <p className="font-mono text-xs text-zinc-700 italic">{r.collaborators}</p>
+              <p className="font-mono text-xs text-zinc-400 dark:text-zinc-700 italic">{r.collaborators}</p>
             </div>
           ))}
         </div>

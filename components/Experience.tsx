@@ -53,36 +53,34 @@ const experiences = [
 export default function Experience() {
   return (
     <section id="experience" className="py-24 max-w-5xl mx-auto section-padding">
-      <div className="border-t border-zinc-800 pt-16">
-        <p className="font-mono text-xs text-emerald-500 uppercase tracking-widest mb-10">
-          <span className="text-zinc-700 mr-1">02</span> experience
+      <div className="border-t border-zinc-200 dark:border-zinc-800 pt-16">
+        <p className="font-mono text-xs text-emerald-600 dark:text-emerald-500 uppercase tracking-widest mb-10">
+          <span className="text-zinc-300 dark:text-zinc-700 mr-1">02</span> experience
         </p>
 
         <div className="space-y-0">
           {experiences.map((exp, i) => (
             <div
               key={i}
-              className={`py-7 border-b border-zinc-800/60 ${i === 0 ? 'border-t border-zinc-800/60' : ''}`}
+              className={`py-7 border-b border-zinc-200/80 dark:border-zinc-800/60 ${i === 0 ? 'border-t border-zinc-200/80 dark:border-zinc-800/60' : ''}`}
             >
               <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-3">
                 <div>
-                  <span className="text-zinc-100 font-medium">{exp.role}</span>
-                  <span className="text-zinc-600 mx-2">·</span>
-                  <span
-                    className={`text-sm font-mono ${exp.upcoming ? 'text-emerald-400' : 'text-zinc-400'}`}
-                  >
+                  <span className="text-zinc-800 dark:text-zinc-100 font-medium">{exp.role}</span>
+                  <span className="text-zinc-300 dark:text-zinc-600 mx-2">·</span>
+                  <span className={`text-sm font-mono ${exp.upcoming ? 'text-emerald-600 dark:text-emerald-400' : 'text-zinc-500 dark:text-zinc-400'}`}>
                     {exp.company}
                   </span>
                 </div>
-                <div className="font-mono text-xs text-zinc-600 shrink-0 sm:text-right">
+                <div className="font-mono text-xs text-zinc-400 dark:text-zinc-600 shrink-0 sm:text-right">
                   <span>{exp.period}</span>
-                  <span className="text-zinc-700 mx-1.5">·</span>
+                  <span className="text-zinc-300 dark:text-zinc-700 mx-1.5">·</span>
                   <span>{exp.location}</span>
                 </div>
               </div>
 
               {exp.description && (
-                <p className="text-sm text-zinc-500 leading-relaxed mb-3 max-w-2xl">
+                <p className="text-sm text-zinc-500 dark:text-zinc-500 leading-relaxed mb-3 max-w-2xl">
                   {exp.description}
                 </p>
               )}
@@ -91,7 +89,7 @@ export default function Experience() {
                 {exp.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="font-mono text-xs text-emerald-600 bg-emerald-950/40 px-2 py-0.5"
+                    className="font-mono text-xs text-emerald-700 dark:text-emerald-600 bg-emerald-50 dark:bg-emerald-950/40 px-2 py-0.5"
                   >
                     {tag}
                   </span>
