@@ -1,13 +1,12 @@
 import { ExternalLink } from 'lucide-react';
 
-// Replace with your actual Medium username when you have posts
-const MEDIUM_USERNAME = 'khadka'; // update this
+const MEDIUM_USERNAME = 'khadka';
 
 async function getMediumPosts() {
   try {
     const res = await fetch(
       `https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@${MEDIUM_USERNAME}`,
-      { next: { revalidate: 3600 } } // refresh every hour
+      { next: { revalidate: 3600 } }
     );
     if (!res.ok) return [];
     const data = await res.json();
@@ -27,77 +26,69 @@ function formatDate(dateStr: string) {
 }
 
 function stripHtml(html: string) {
-  return html.replace(/<[^>]*>/g, '').slice(0, 160) + '…';
+  return html.replace(/<[^>]*>/g, '').slice(0, 140) + '…';
 }
 
 export default async function Writing() {
   const posts = await getMediumPosts();
 
   return (
-    <section id="writing" className="py-24 max-w-6xl mx-auto section-padding">
-      <div className="grid md:grid-cols-[200px_1fr] gap-12 items-start">
-        <div>
-          <span className="font-mono text-xs text-indigo-500 dark:text-indigo-400 uppercase tracking-widest">
-            Writing
-          </span>
-        </div>
+    <section id="writing" className="py-24 max-w-5xl mx-auto section-padding">
+      <div className="border-t border-zinc-800 pt-16">
+        <p className="font-mono text-xs text-emerald-500 uppercase tracking-widest mb-10">
+          <span className="text-zinc-700 mr-1">06</span> writing
+        </p>
 
-        <div className="space-y-4">
-          {posts.length === 0 ? (
-            <div className="rounded-xl border border-dashed border-slate-200 dark:border-slate-800 p-8 text-center space-y-3">
-              <p className="text-sm text-slate-400 dark:text-slate-500">
-                Writing coming soon. I'll be publishing on distributed systems, databases, and
-                software engineering.
-              </p>
-              <a
-                href={`https://medium.com/@${MEDIUM_USERNAME}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-xs text-indigo-500 dark:text-indigo-400 hover:underline font-mono"
-              >
-                Follow on Medium <ExternalLink size={11} />
-              </a>
-            </div>
-          ) : (
-            <>
-              <div className="grid sm:grid-cols-3 gap-4">
-                {posts.map((post: any) => (
-                  <a
-                    key={post.guid}
-                    href={post.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/30 p-5 space-y-3 hover:border-indigo-300 dark:hover:border-indigo-800 transition-colors"
-                  >
-                    <p className="font-mono text-xs text-slate-400 dark:text-slate-500">
-                      {formatDate(post.pubDate)}
-                    </p>
-                    <h3 className="text-sm font-medium text-slate-900 dark:text-slate-100 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors leading-snug">
-                      {post.title}
-                    </h3>
-                    <p className="text-xs text-slate-500 dark:text-slate-500 leading-relaxed">
-                      {stripHtml(post.description)}
-                    </p>
-                    <span className="text-xs text-indigo-500 dark:text-indigo-400 font-mono group-hover:underline">
-                      Read →
-                    </span>
-                  </a>
-                ))}
-              </div>
-
-              <div className="pt-2">
+        {posts.length === 0 ? (
+          <div className="border border-dashed border-zinc-800 p-8 space-y-3">
+            <p className="font-mono text-sm text-zinc-600">
+              <span className="text-zinc-800">$ </span>
+              writing on distributed systems, databases, and software engineering — coming soon
+            </p>
+            <a
+              href={`https://medium.com/@${MEDIUM_USERNAME}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 font-mono text-xs text-zinc-600 hover:text-emerald-400 transition-colors"
+            >
+              follow on medium <ExternalLink size={10} />
+            </a>
+          </div>
+        ) : (
+          <>
+            <div className="space-y-0">
+              {posts.map((post: any) => (
                 <a
-                  href={`https://medium.com/@${MEDIUM_USERNAME}`}
+                  key={post.guid}
+                  href={post.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-sm text-slate-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
+                  className="group flex flex-col sm:flex-row sm:items-start gap-4 py-5 border-b border-zinc-800/60 first:border-t first:border-zinc-800/60 hover:bg-zinc-900/30 transition-colors -mx-4 px-4"
                 >
-                  All posts on Medium <ExternalLink size={13} />
+                  <span className="font-mono text-xs text-zinc-600 shrink-0 pt-0.5 w-24">
+                    {formatDate(post.pubDate)}
+                  </span>
+                  <div>
+                    <h3 className="text-zinc-200 text-sm font-medium group-hover:text-emerald-400 transition-colors mb-1">
+                      {post.title}
+                    </h3>
+                    <p className="text-xs text-zinc-600 leading-relaxed">
+                      {stripHtml(post.description)}
+                    </p>
+                  </div>
                 </a>
-              </div>
-            </>
-          )}
-        </div>
+              ))}
+            </div>
+            <a
+              href={`https://medium.com/@${MEDIUM_USERNAME}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 font-mono text-xs text-zinc-600 hover:text-emerald-400 transition-colors mt-6"
+            >
+              all posts on medium <ExternalLink size={10} />
+            </a>
+          </>
+        )}
       </div>
     </section>
   );

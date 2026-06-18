@@ -1,44 +1,39 @@
 export default function About() {
   return (
-    <section id="about" className="py-24 max-w-6xl mx-auto section-padding">
-      <div className="grid md:grid-cols-[200px_1fr] gap-12 items-start">
-        <div>
-          <span className="font-mono text-xs text-indigo-500 dark:text-indigo-400 uppercase tracking-widest">
-            About
-          </span>
-        </div>
+    <section id="about" className="py-24 max-w-5xl mx-auto section-padding">
+      <div className="border-t border-zinc-800 pt-16">
+        <p className="font-mono text-xs text-emerald-500 uppercase tracking-widest mb-10">
+          <span className="text-zinc-700 mr-1">01</span> about
+        </p>
 
-        <div className="space-y-5 max-w-2xl">
-          <p className="text-slate-700 dark:text-slate-300 text-lg leading-relaxed">
-            I'm a software engineer who cares deeply about what happens at the system level —
-            how data stays durable when nodes fail, how logs stay consistent under network partitions,
-            how databases serve millions of queries without missing a beat.
+        <div className="max-w-2xl space-y-5">
+          <p className="text-zinc-200 text-lg leading-relaxed">
+            I work at the layer where reliability is earned — quorum writes, WAL recovery, replica
+            catch-up. The infrastructure that everyone depends on and nobody notices until it fails.
           </p>
-          <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
-            I grew up in Nepal, studied at Deakin University in Melbourne, and am currently
-            finishing my MS in Computer Science at the University of New Haven. Along the way I've
-            done research in ML anomaly detection, built production backend systems, and interned at
-            Amazon. In August 2026 I'm joining AWS RDS — working on the infrastructure that powers
+          <p className="text-zinc-400 leading-relaxed">
+            Grew up in Nepal, studied at Deakin University in Melbourne, and currently finishing
+            my MS in Computer Science at the University of New Haven. Along the way: ML anomaly
+            detection research, production backend systems in Kathmandu, and a summer at Amazon.
+            In August 2026 I'm joining AWS RDS — working on the infrastructure that powers
             databases at planetary scale.
           </p>
-          <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
-            Outside of engineering: I run, I compete in speech contests (Toastmasters
-            International finalist), and I believe that clarity in writing and clarity in code come
-            from the same place.
+          <p className="text-zinc-400 leading-relaxed">
+            Outside of systems work: I run, I compete in speech contests (Toastmasters
+            International finalist), and I'm building DWAL — a distributed write-ahead log service
+            with quorum-based durability, total ordering via monotonically increasing LSNs, and
+            crash recovery.
           </p>
 
-          {/* Quick facts */}
-          <div className="pt-4 grid grid-cols-2 sm:grid-cols-3 gap-4 border-t border-slate-200 dark:border-slate-800">
+          <div className="pt-6 grid grid-cols-3 gap-6 border-t border-zinc-800 font-mono text-sm">
             {[
-              { label: 'Based in', value: 'Connecticut, US' },
-              { label: 'Starting', value: 'AWS RDS · Aug 2026' },
-              { label: 'Education', value: 'MS CS · UNH' },
+              { k: 'location', v: 'Connecticut, US' },
+              { k: 'starting', v: 'AWS RDS · aug 2026' },
+              { k: 'education', v: 'MS CS · UNH' },
             ].map((f) => (
-              <div key={f.label}>
-                <p className="text-xs text-slate-400 dark:text-slate-500 font-mono uppercase tracking-wider mb-1">
-                  {f.label}
-                </p>
-                <p className="text-sm text-slate-700 dark:text-slate-300 font-medium">{f.value}</p>
+              <div key={f.k}>
+                <p className="text-zinc-600 text-xs uppercase tracking-wider mb-1">{f.k}</p>
+                <p className="text-zinc-300">{f.v}</p>
               </div>
             ))}
           </div>

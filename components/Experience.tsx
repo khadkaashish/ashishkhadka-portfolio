@@ -2,7 +2,7 @@ const experiences = [
   {
     company: 'Amazon Web Services',
     role: 'Software Engineer — RDS',
-    period: 'Aug 2026 →',
+    period: 'aug 2026 →',
     location: 'United States',
     description: 'Joining the Amazon RDS team to work on database infrastructure at scale.',
     tags: ['Distributed Systems', 'Databases', 'Infrastructure'],
@@ -11,39 +11,40 @@ const experiences = [
   {
     company: 'Amazon Web Services',
     role: 'Software Engineer Intern',
-    period: 'Jun 2025 – Aug 2025',
+    period: 'jun 2025 – aug 2025',
     location: 'California, US',
-    description: 'Software engineering internship at AWS.',
-    tags: ['AWS', 'Cloud'],
+    description:
+      'Built internal tooling and services on the AWS platform. Details under NDA — happy to discuss in interviews.',
+    tags: ['AWS', 'Cloud', 'Go'],
     upcoming: false,
   },
   {
     company: 'University of New Haven',
     role: 'Research Assistant (Provost)',
-    period: 'Oct 2024 – Present',
+    period: 'oct 2024 – present',
     location: 'Connecticut, US',
     description:
-      'Provost-funded research assistantship in computer science.',
-    tags: ['Research', 'Computer Science'],
+      'Provost-funded research on LLM lateral thinking benchmarking. Published at IEEE FLLM 2025.',
+    tags: ['LLMs', 'NLP', 'Python', 'Research'],
     upcoming: false,
   },
   {
     company: 'Startup',
     role: 'Software Development Engineer',
-    period: 'Jan 2022 – Jan 2024',
+    period: 'jan 2022 – jan 2024',
     location: 'Kathmandu, Nepal',
     description:
-      'Led end-to-end development of a high-performance server-side application. Architected PostgreSQL and MongoDB data storage, implemented Docker/Kubernetes CI/CD pipelines, and established backend best practices around API security and load balancing.',
+      'Led backend development of a high-performance server-side application. Architected PostgreSQL and MongoDB storage, implemented Docker/Kubernetes CI/CD pipelines, and established API security practices around OAuth and JWT.',
     tags: ['PostgreSQL', 'MongoDB', 'Docker', 'Kubernetes', 'OAuth', 'JWT'],
     upcoming: false,
   },
   {
     company: 'Deakin University',
     role: 'Research Assistant & Digital Learning Support',
-    period: 'Aug 2019 – Sep 2021',
+    period: 'aug 2019 – sep 2021',
     location: 'Melbourne, Australia',
     description:
-      'Conducted research on Deep Semi-Supervised ML for anomaly detection using TensorFlow and PyTorch. Simultaneously designed the Faculty Learning Innovations website and built Tableau dashboards for the University LMS.',
+      'Researched deep semi-supervised ML for anomaly detection using TensorFlow and PyTorch on MNIST and CIFAR-10. Concurrently designed the Faculty Learning Innovations website and built Tableau dashboards for the university LMS.',
     tags: ['TensorFlow', 'PyTorch', 'Python', 'Tableau', 'ML Research'],
     upcoming: false,
   },
@@ -51,70 +52,53 @@ const experiences = [
 
 export default function Experience() {
   return (
-    <section id="experience" className="py-24 max-w-6xl mx-auto section-padding">
-      <div className="grid md:grid-cols-[200px_1fr] gap-12 items-start">
-        <div>
-          <span className="font-mono text-xs text-indigo-500 dark:text-indigo-400 uppercase tracking-widest">
-            Experience
-          </span>
-        </div>
+    <section id="experience" className="py-24 max-w-5xl mx-auto section-padding">
+      <div className="border-t border-zinc-800 pt-16">
+        <p className="font-mono text-xs text-emerald-500 uppercase tracking-widest mb-10">
+          <span className="text-zinc-700 mr-1">02</span> experience
+        </p>
 
-        <div className="relative">
-          {/* Timeline line */}
-          <div className="absolute left-0 top-2 bottom-2 w-px bg-slate-200 dark:bg-slate-800 hidden md:block" />
-
-          <div className="space-y-10">
-            {experiences.map((exp, i) => (
-              <div key={i} className="md:pl-8 relative">
-                {/* Timeline dot */}
-                <div
-                  className={`absolute left-0 top-1.5 w-2 h-2 rounded-full -translate-x-[3.5px] hidden md:block ${
-                    exp.upcoming
-                      ? 'bg-indigo-500 ring-4 ring-indigo-100 dark:ring-indigo-950/60'
-                      : 'bg-slate-300 dark:bg-slate-700'
-                  }`}
-                />
-
-                <div className={`space-y-2 ${exp.upcoming ? 'opacity-80' : ''}`}>
-                  <div className="flex flex-wrap items-start justify-between gap-2">
-                    <div>
-                      <h3 className="font-semibold text-slate-900 dark:text-slate-100">
-                        {exp.role}
-                      </h3>
-                      <p className="text-sm text-indigo-600 dark:text-indigo-400 font-medium">
-                        {exp.company}
-                      </p>
-                    </div>
-                    <div className="text-right shrink-0">
-                      <p className="font-mono text-xs text-slate-400 dark:text-slate-500">
-                        {exp.period}
-                      </p>
-                      <p className="font-mono text-xs text-slate-400 dark:text-slate-600">
-                        {exp.location}
-                      </p>
-                    </div>
-                  </div>
-
-                  {exp.description && (
-                    <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-                      {exp.description}
-                    </p>
-                  )}
-
-                  <div className="flex flex-wrap gap-1.5 pt-1">
-                    {exp.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800/80 text-slate-500 dark:text-slate-400 text-xs font-mono"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
+        <div className="space-y-0">
+          {experiences.map((exp, i) => (
+            <div
+              key={i}
+              className={`py-7 border-b border-zinc-800/60 ${i === 0 ? 'border-t border-zinc-800/60' : ''}`}
+            >
+              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-3">
+                <div>
+                  <span className="text-zinc-100 font-medium">{exp.role}</span>
+                  <span className="text-zinc-600 mx-2">·</span>
+                  <span
+                    className={`text-sm font-mono ${exp.upcoming ? 'text-emerald-400' : 'text-zinc-400'}`}
+                  >
+                    {exp.company}
+                  </span>
+                </div>
+                <div className="font-mono text-xs text-zinc-600 shrink-0 sm:text-right">
+                  <span>{exp.period}</span>
+                  <span className="text-zinc-700 mx-1.5">·</span>
+                  <span>{exp.location}</span>
                 </div>
               </div>
-            ))}
-          </div>
+
+              {exp.description && (
+                <p className="text-sm text-zinc-500 leading-relaxed mb-3 max-w-2xl">
+                  {exp.description}
+                </p>
+              )}
+
+              <div className="flex flex-wrap gap-1.5">
+                {exp.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="font-mono text-xs text-emerald-600 bg-emerald-950/40 px-2 py-0.5"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

@@ -13,18 +13,19 @@ module.exports = {
         mono: ['var(--font-jetbrains)', 'monospace'],
       },
       colors: {
-        accent: {
-          DEFAULT: '#6366f1', // indigo
-          light: '#818cf8',
-          dark: '#4f46e5',
-        },
+        accent: '#10b981',
       },
       animation: {
-        'fade-up': 'fadeUp 0.6s ease forwards',
+        'cursor-blink': 'cursorBlink 1.1s step-end infinite',
+        'fade-up': 'fadeUp 0.5s ease forwards',
       },
       keyframes: {
+        cursorBlink: {
+          '0%, 100%': { opacity: '1' },
+          '50%': { opacity: '0' },
+        },
         fadeUp: {
-          '0%': { opacity: '0', transform: 'translateY(20px)' },
+          '0%': { opacity: '0', transform: 'translateY(12px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
         },
       },

@@ -1,52 +1,25 @@
 const skillGroups = [
-  {
-    category: 'Languages',
-    skills: ['Go', 'Python', 'TypeScript', 'C++', 'JavaScript', 'SQL', 'PHP'],
-  },
-  {
-    category: 'Systems & Infrastructure',
-    skills: ['Distributed Systems', 'PostgreSQL', 'MongoDB', 'Docker', 'Kubernetes', 'CI/CD', 'gRPC', 'Linux'],
-  },
-  {
-    category: 'Backend & APIs',
-    skills: ['Node.js', 'REST APIs', 'OAuth', 'JWT', 'Load Balancing', 'Microservices'],
-  },
-  {
-    category: 'ML & Data',
-    skills: ['TensorFlow', 'PyTorch', 'Scikit-learn', 'Tableau', 'LLMs', 'Anomaly Detection'],
-  },
-  {
-    category: 'Tools & Practices',
-    skills: ['Git', 'AWS', 'Next.js', 'Data Structures', 'System Design', 'Code Review'],
-  },
+  { category: 'languages', skills: ['Go', 'Python', 'TypeScript', 'C++', 'JavaScript', 'SQL', 'PHP'] },
+  { category: 'systems', skills: ['Distributed Systems', 'PostgreSQL', 'MongoDB', 'Docker', 'Kubernetes', 'gRPC', 'Linux', 'CI/CD'] },
+  { category: 'backend', skills: ['Node.js', 'REST APIs', 'OAuth', 'JWT', 'Load Balancing', 'Microservices'] },
+  { category: 'ml & data', skills: ['TensorFlow', 'PyTorch', 'Scikit-learn', 'Tableau', 'LLMs', 'Anomaly Detection'] },
+  { category: 'tooling', skills: ['Git', 'AWS', 'Next.js', 'System Design', 'Code Review'] },
 ];
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-24 max-w-6xl mx-auto section-padding">
-      <div className="grid md:grid-cols-[200px_1fr] gap-12 items-start">
-        <div>
-          <span className="font-mono text-xs text-indigo-500 dark:text-indigo-400 uppercase tracking-widest">
-            Skills
-          </span>
-        </div>
+    <section id="skills" className="py-24 max-w-5xl mx-auto section-padding">
+      <div className="border-t border-zinc-800 pt-16">
+        <p className="font-mono text-xs text-emerald-500 uppercase tracking-widest mb-10">
+          <span className="text-zinc-700 mr-1">05</span> skills
+        </p>
 
-        <div className="space-y-6">
+        <div className="font-mono text-sm space-y-3">
           {skillGroups.map((group) => (
-            <div key={group.category} className="flex flex-col sm:flex-row gap-3 sm:gap-6">
-              <p className="text-xs font-mono text-slate-400 dark:text-slate-500 uppercase tracking-wider shrink-0 sm:w-40 pt-1">
-                {group.category}
-              </p>
-              <div className="flex flex-wrap gap-2">
-                {group.skills.map((skill) => (
-                  <span
-                    key={skill}
-                    className="px-3 py-1 rounded-lg bg-slate-100 dark:bg-slate-800/80 text-slate-600 dark:text-slate-300 text-sm hover:bg-indigo-50 dark:hover:bg-indigo-950/40 hover:text-indigo-700 dark:hover:text-indigo-300 transition-colors cursor-default"
-                  >
-                    {skill}
-                  </span>
-                ))}
-              </div>
+            <div key={group.category} className="flex gap-0">
+              <span className="text-zinc-700 w-28 shrink-0 pt-px">{group.category}</span>
+              <span className="text-zinc-700 mr-4 pt-px">·</span>
+              <span className="text-zinc-400">{group.skills.join(', ')}</span>
             </div>
           ))}
         </div>
