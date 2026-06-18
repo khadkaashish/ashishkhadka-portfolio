@@ -36,10 +36,36 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://ashishkhadka.com'),
 };
 
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Ashish Khadka',
+  url: 'https://ashishkhadka.com',
+  jobTitle: 'Software Engineer',
+  worksFor: {
+    '@type': 'Organization',
+    name: 'Amazon Web Services',
+  },
+  alumniOf: [
+    { '@type': 'CollegeOrUniversity', name: 'University of New Haven' },
+    { '@type': 'CollegeOrUniversity', name: 'Deakin University' },
+  ],
+  knowsAbout: ['Distributed Systems', 'Databases', 'Infrastructure', 'Go', 'PostgreSQL', 'Kubernetes'],
+  sameAs: [
+    'https://github.com/khadkaashish',
+    'https://www.linkedin.com/in/khadkaa',
+    'https://scholar.google.com/citations?user=Ia5aU4gAAAAJ',
+  ],
+};
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`} suppressHydrationWarning>
       <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
           {children}
         </ThemeProvider>
